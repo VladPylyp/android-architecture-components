@@ -6,9 +6,9 @@ import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.benchmark.BenchmarkRule
 import androidx.benchmark.measureRepeated
-import androidx.test.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
+import androidx.test.platform.app.InstrumentationRegistry
 import androidx.work.*
 import androidx.work.impl.utils.SynchronousExecutor
 import androidx.work.testing.WorkManagerTestInitHelper
@@ -31,7 +31,7 @@ class WorkerBenchmark {
         private const val JETPACK = "${BaseFilterWorker.ASSET_PREFIX}images/jetpack.png"
     }
 
-    private val context = InstrumentationRegistry.getTargetContext()
+    private val context = InstrumentationRegistry.getInstrumentation().targetContext
 
     @get:Rule
     val benchmarkRule = BenchmarkRule()
